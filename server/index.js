@@ -12,7 +12,7 @@ const cors = require("cors");
 mongoose
   .connect("mongodb://127.0.0.1:27017/mernDB")
   .then(() => {
-    console.log("連結資料庫中...");
+    console.log("connecting to db...");
   })
   .catch((e) => console.log(e));
 
@@ -31,5 +31,5 @@ app.use(
 );
 
 app.listen(8080, () => {
-  console.log("running");
+  console.log("server is running");
 });
