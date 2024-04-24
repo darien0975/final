@@ -8,7 +8,7 @@ const RegisterComponent = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [contact , setContact] = useState("");
+  const [contact, setContact] = useState("");
   const [role, setRole] = useState("");
   const [sex, setSex] = useState("");
   const [message, setMessage] = useState("");
@@ -29,9 +29,9 @@ const RegisterComponent = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleContact = (e) =>{
+  const handleContact = (e) => {
     setContact(e.target.value);
-  }
+  };
 
   const handleRole = (e) => {
     setRole(e.target.value);
@@ -47,7 +47,7 @@ const RegisterComponent = () => {
       return;
     }
 
-    AuthService.register(username, name, password, contact , role, sex)
+    AuthService.register(username, name, password, contact, role, sex)
       .then(() => {
         window.alert("註冊成功，您現在被導向登入頁面");
         navigate("/login");
@@ -68,7 +68,6 @@ const RegisterComponent = () => {
             type="text"
             className="form-control"
             name="username"
-            
           />
         </div>
         <br />

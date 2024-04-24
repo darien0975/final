@@ -1,11 +1,13 @@
-*{
-    box-sizing: border-box;
-    font-family: '王漢宗超明體繁';
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "王漢宗超明體繁";
 }
 
-body{
-    background-color: blanchedalmond;
+body {
+  background-color: blanchedalmond;
 }
 
-@import './navcomponent';
-@import './homecompomemt';
+@import "./nav-component";
+@import "./home-compomemt";

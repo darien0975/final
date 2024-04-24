@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.css","style.scss","_navcomponent.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACAhB;EACI,sBAAA;EACA,sBAAA;ADEJ;;ACCA;EACI,gCAAA;ADEJ;;AERA;EACI,wBAAA;AFWJ","file":"style.css"}
+{"version":3,"sources":["style.css","style.scss","_nav-component.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACAhB;EACE,UAAA;EACA,SAAA;EACA,sBAAA;EACA,sBAAA;ADEF;;ACCA;EACE,gCAAA;ADEF;;AEVA;EACE,wBAAA;AFaF","file":"style.css"}
