@@ -4,9 +4,26 @@ import larpEventService from "../services/larpevent.service";
 
 const JoinComponent = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
-  let [searchInput, setSearchInput] = useState("");
-  let [searchResult, setSearchResult] = useState(null);
-  let [message, setMessage] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
+  const [allLarps, setAllLarps] = useState([]);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    getLarps();
+  }, []);
+
+  const getLarps = () => {
+    larpEventService
+      .getLarps()
+      .then((data) => {
+        setAllLarps(data.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   const handleTakeToLogin = () => {
     navigate("/login");
   };
@@ -16,28 +33,23 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   const handleSearch = () => {
-    larpEventService
-      .getLarpByName(searchInput)
-      .then((data) => {
-        console.log(data.data);
-        setSearchResult(data.data);
-      })
-      .catch((e) => {
-        console.log(e);
-        setMessage(e.response.data);
-      });
+    const filteredLarps = allLarps.filter((larp) =>
+      larp.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    setSearchResult(filteredLarps);
   };
 
   const handleJoin = (e) => {
-    console.log(e.target);
+    const larpId = e.target.id;
     larpEventService
-      .join(e.target.id)
+      .join(larpId)
       .then(() => {
         window.alert("報名成功");
         navigate("/larpevent");
       })
       .catch((e) => {
         console.log(e);
+        setMessage(e.response.data);
       });
   };
 
@@ -73,9 +85,9 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
         </div>
       )}
 
-      {currentUser && searchResult && searchResult.length != 0 && (
+      {currentUser && (searchResult || allLarps) && (
         <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {searchResult.map((larp) => {
+          {(searchResult || allLarps).map((larp) => {
             return (
               <div
                 key={larp._id}
@@ -84,19 +96,11 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
               >
                 <div className="card-body">
                   <h5 className="card-title">劇本名稱:{larp.name}</h5>
-                  {larp.type && (
-                    <p style={{ margin: "0.5rem 0rem" }}>類型:{larp.type}</p>
-                  )}
-                  <p style={{ margin: "0.5rem 0rem" }}>時間:{larp.time}</p>
-                  <p style={{ margin: "0.5rem 0rem" }}>地點:{larp.place}</p>
-                  {larp.price !== 0 && (
-                    <p style={{ margin: "0.5rem 0rem" }}>費用:{larp.price}元</p>
-                  )}
-                  {larp.gamemaster.name && (
-                    <p style={{ margin: "0.5rem 0rem" }}>
-                      主持人:{larp.gamemaster.name}
-                    </p>
-                  )}
+                  <p>類型:{larp.type}</p>
+                  <p>時間:{larp.time}</p>
+                  <p>地點:{larp.place}</p>
+                  {larp.price !== 0 && <p>費用:{larp.price}元</p>}
+                  {larp.gamemaster.name && <p>主持人:{larp.gamemaster.name}</p>}
                   缺{" "}
                   {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
@@ -108,12 +112,8 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                       {larp.female - larp.femaleplayer.length}女
                     </span>
                   )}
-                  <p style={{ margin: "0.5rem 0rem" }}>
-                    聯絡方式(line或電話):{larp.contact}
-                  </p>
-                  {larp.note && (
-                    <p style={{ margin: "0.5rem 0rem" }}>備註:{larp.note}</p>
-                  )}
+                  <p>聯絡方式(line或電話):{larp.contact}</p>
+                  {larp.note && <p>備註:{larp.note}</p>}
                   <a
                     href="#"
                     id={larp._id}
