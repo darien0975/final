@@ -20,6 +20,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
         larpEventService
           .get(_id)
           .then((data) => {
+            console.log(data);
             setLarpData(data.data);
           })
           .catch((e) => {
@@ -93,9 +94,19 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                       {larp.female - larp.femaleplayer.length}女
                     </span>
                   )}
-                  <p style={{ margin: "0.5rem 0rem" }}>
-                    聯絡方式(line或電話):{larp.contact}
-                  </p>
+                  {currentUser.user.role === "玩家" && (
+                    <p style={{ margin: "0.5rem 0rem" }}>
+                      主持人聯絡方式(line或電話):{larp.contact}
+                    </p>
+                  )}
+                  {currentUser.user.role === "主持人" && (
+                    <p style={{ margin: "0.5rem 0rem" }}>
+                      玩家們聯絡方式(line或電話):
+                      {larp.playercontact.map((data) => {
+                        return <span>{data + ","}</span>;
+                      })}
+                    </p>
+                  )}
                   {larp.note && (
                     <p style={{ margin: "0.5rem 0rem" }}>備註:{larp.note}</p>
                   )}

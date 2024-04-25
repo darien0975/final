@@ -113,8 +113,10 @@ router.post("/join/:_id", async (req, res) => {
     let larp = await LarpEvent.findOne({ _id }).exec();
     if (req.user.sex == "男性") {
       larp.maleplayer.push(req.user._id);
+      larp.playercontact.push(req.user.name + "(" + req.user.contact + ")");
     } else if (req.user.sex == "女性") {
       larp.femaleplayer.push(req.user._id);
+      larp.playercontact.push(req.user.name + "(" + req.user.contact + ")");
     }
 
     if (req.user.sex == "男性" && larp.male - larp.maleplayer.length < 0) {

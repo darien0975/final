@@ -43,6 +43,10 @@ const larpEventSchema = new Schema({
   contact: {
     type: String,
   },
+  playercontact: {
+    type: [String],
+    default: [],
+  },
   note: {
     type: String,
   },
