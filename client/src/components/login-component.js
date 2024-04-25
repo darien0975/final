@@ -2,31 +2,32 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
-const LoginComponent = ({ currentUser , setCurrentUser}) => {
+const LoginComponent = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
-  let [username , setUsername] = useState("");
-  let [password , setPassword] = useState("");
-  let [message , setMessage] = useState("");
+  let [username, setUsername] = useState("");
+  let [password, setPassword] = useState("");
+  let [message, setMessage] = useState("");
 
-  const handleUsername = (e) =>{
+  const handleUsername = (e) => {
     setUsername(e.target.value);
-  }
+  };
 
-  const handlePassword = (e) =>{
+  const handlePassword = (e) => {
     setPassword(e.target.value);
-  }
+  };
 
-  const handleLogin = async () =>{
-   try{
-    let response = await AuthService.login(username , password);
-    localStorage.setItem("user" , JSON.stringify(response.data));
-    window.alert("登入成功,您現在將被重新導向至個人頁面");
-    setCurrentUser(AuthService.getCurrentUser());
-    navigate("/profile");
-   }catch(e){
-    setMessage(e.response.data);
-   }
-  }
+  const handleLogin = async () => {
+    try {
+      let response = await AuthService.login(username, password);
+      localStorage.setItem("user", JSON.stringify(response.data));
+      window.alert("登入成功,您現在將被重新導向至個人頁面");
+      setCurrentUser(AuthService.getCurrentUser());
+      navigate("/profile");
+    } catch (e) {
+      console.log(e);
+      setMessage(e.response.data);
+    }
+  };
 
   return (
     <div style={{ padding: "3rem" }} className="col-md-12">

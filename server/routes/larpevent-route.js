@@ -116,8 +116,18 @@ router.post("/join/:_id", async (req, res) => {
     } else if (req.user.sex == "女性") {
       larp.femaleplayer.push(req.user._id);
     }
-    await larp.save();
-    return res.send("報名成功");
+
+    if (req.user.sex == "男性" && larp.male - larp.maleplayer.length < 0) {
+      return res.status(400).send("男性玩家名額已滿,請重新選擇");
+    } else if (
+      req.user.sex == "女性" &&
+      larp.female - larp.femaleplayer.length < 0
+    ) {
+      return res.status(400).send("女性玩家名額已滿,請重新選擇");
+    } else {
+      await larp.save();
+      return res.send("報名成功");
+    }
   } catch (e) {
     return res.send(e);
   }

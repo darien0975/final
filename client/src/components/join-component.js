@@ -6,6 +6,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
   let [searchInput, setSearchInput] = useState("");
   let [searchResult, setSearchResult] = useState(null);
+  let [message, setMessage] = useState("");
   const handleTakeToLogin = () => {
     navigate("/login");
   };
@@ -23,6 +24,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
       })
       .catch((e) => {
         console.log(e);
+        setMessage(e.response.data);
       });
   };
 
@@ -41,6 +43,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
 
   return (
     <div style={{ padding: "3rem" }}>
+      {message && <div className="alert alert-danger">{message}</div>}
       {!currentUser && (
         <div>
           <p>您必須先登入才能參加劇本團</p>
@@ -86,7 +89,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                   )}
                   <p style={{ margin: "0.5rem 0rem" }}>時間:{larp.time}</p>
                   <p style={{ margin: "0.5rem 0rem" }}>地點:{larp.place}</p>
-                  {larp.price != 0 && (
+                  {larp.price !== 0 && (
                     <p style={{ margin: "0.5rem 0rem" }}>費用:{larp.price}元</p>
                   )}
                   {larp.gamemaster.name && (
@@ -95,12 +98,12 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                     </p>
                   )}
                   缺{" "}
-                  {larp.male != 0 && (
+                  {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.male - larp.maleplayer.length}男
                     </span>
                   )}
-                  {larp.female != 0 && (
+                  {larp.female - larp.femaleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.female - larp.femaleplayer.length}女
                     </span>

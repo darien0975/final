@@ -83,12 +83,12 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                     </p>
                   )}
                   缺{" "}
-                  {larp.male !== 0 && (
+                  {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.male - larp.maleplayer.length}男
                     </span>
                   )}
-                  {larp.female != 0 && (
+                  {larp.female - larp.femaleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.female - larp.femaleplayer.length}女
                     </span>
