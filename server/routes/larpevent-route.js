@@ -112,6 +112,13 @@ router.post("/join/:_id", async (req, res) => {
   try {
     let larp = await LarpEvent.findOne({ _id }).exec();
 
+    if (
+      larp.maleplayer.includes(req.user._id) ||
+      larp.femaleplayer.includes(req.user._id)
+    ) {
+      return res.status(400).send("您已報名過此團,請重新選擇");
+    }
+
     if (req.user.sex == "男性") {
       larp.maleplayer.push(req.user._id);
       larp.playercontact.push(req.user.name + "(" + req.user.contact + ")");

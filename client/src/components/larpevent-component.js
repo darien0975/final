@@ -9,6 +9,8 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
     navigate("/login");
   };
   const [larpData, setLarpData] = useState(null);
+  const [message, setMessage] = useState("");
+  const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
     let _id;
@@ -38,7 +40,22 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
           });
       }
     }
-  }, [currentUser]);
+  }, [currentUser, deleted]);
+
+  const handleDelete = (e) => {
+    const larpId = e.target.id;
+    larpEventService
+      .delete(larpId)
+      .then(() => {
+        window.alert("刪除成功");
+        setDeleted(true);
+        navigate("/larpevent");
+      })
+      .catch((e) => {
+        console.log(e);
+        setMessage(e.response.data);
+      });
+  };
 
   return (
     <div style={{ padding: "3rem" }}>
@@ -83,7 +100,18 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                       主持人:{larp.gamemaster.name}
                     </p>
                   )}
-                  缺{" "}
+                  {(larp.male - larp.maleplayer.length !== 0 ||
+                    larp.female - larp.femaleplayer.length !== 0) && (
+                    <span style={{ margin: "0.5rem 0rem" }}>缺</span>
+                  )}
+
+                  {larp.male - larp.maleplayer.length === 0 &&
+                    larp.female - larp.femaleplayer.length === 0 && (
+                      <span style={{ margin: "0.5rem 0rem", color: "red" }}>
+                        滿團
+                      </span>
+                    )}
+
                   {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.male - larp.maleplayer.length}男
@@ -109,6 +137,16 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                   )}
                   {larp.note && (
                     <p style={{ margin: "0.5rem 0rem" }}>備註:{larp.note}</p>
+                  )}
+                  {currentUser.user.role === "主持人" && (
+                    <a
+                      href="#"
+                      id={larp._id}
+                      className="card-text btn btn-danger"
+                      onClick={handleDelete}
+                    >
+                      刪除
+                    </a>
                   )}
                 </div>
               </div>

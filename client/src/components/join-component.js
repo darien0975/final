@@ -103,7 +103,17 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                   <p>
                     主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
                   </p>
-                  缺{" "}
+                  {(larp.male - larp.maleplayer.length !== 0 ||
+                    larp.female - larp.femaleplayer.length !== 0) && (
+                    <span style={{ margin: "0.5rem 0rem" }}>缺</span>
+                  )}
+
+                  {larp.male - larp.maleplayer.length === 0 &&
+                    larp.female - larp.femaleplayer.length === 0 && (
+                      <span style={{ margin: "0.5rem 0rem", color: "red" }}>
+                        滿團
+                      </span>
+                    )}
                   {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
                       {larp.male - larp.maleplayer.length}男
@@ -116,14 +126,17 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                   )}
                   <p>聯絡方式(line或電話):{larp.contact}</p>
                   {larp.note && <p>備註:{larp.note}</p>}
-                  <a
-                    href="#"
-                    id={larp._id}
-                    className="card-text btn btn-primary"
-                    onClick={handleJoin}
-                  >
-                    參加
-                  </a>
+                  {(larp.male - larp.maleplayer.length !== 0 ||
+                    larp.female - larp.femaleplayer.length !== 0) && (
+                    <a
+                      href="#"
+                      id={larp._id}
+                      className="card-text btn btn-primary"
+                      onClick={handleJoin}
+                    >
+                      參加
+                    </a>
+                  )}
                 </div>
               </div>
             );
