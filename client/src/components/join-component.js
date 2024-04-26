@@ -100,7 +100,9 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                   <p>時間:{larp.time}</p>
                   <p>地點:{larp.place}</p>
                   {larp.price !== 0 && <p>費用:{larp.price}元</p>}
-                  {larp.gamemaster.name && <p>主持人:{larp.gamemaster.name}</p>}
+                  <p>
+                    主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
+                  </p>
                   缺{" "}
                   {larp.male - larp.maleplayer.length !== 0 && (
                     <span style={{ margin: "0.5rem 0rem" }}>
