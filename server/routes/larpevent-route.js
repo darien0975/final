@@ -111,6 +111,7 @@ router.post("/join/:_id", async (req, res) => {
   let { _id } = req.params;
   try {
     let larp = await LarpEvent.findOne({ _id }).exec();
+
     if (req.user.sex == "男性") {
       larp.maleplayer.push(req.user._id);
       larp.playercontact.push(req.user.name + "(" + req.user.contact + ")");
