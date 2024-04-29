@@ -1,21 +1,101 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import event from "../pictures/event.png";
+import event2 from "../pictures/event2.png";
+import event3 from "../pictures/event3.png";
 
 const HomeComponent = () => {
   return (
     <main>
       <div className="container py-4">
-        <div className="p-5 mb-4 bg-warning rounded-3">
-          <div className="container-fluid py-5">
-            <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
-            <p className="col-md-8 fs-2">
-              本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
-            </p>
-            <button className="btn btn-primary btn-lg" type="button">
-              了解劇本殺
-            </button>
+        <div
+          className=" carousel slide"
+          id="carouselExampleControls"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div
+              class="carousel-item active rounded-3  mb-4 p-5"
+              style={{
+                backgroundImage: `url(${event})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div
+                className="container-fluid py-5"
+                style={{ paddingLeft: "6rem" }}
+              >
+                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
+                <p className="col-md-8 fs-2">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                </p>
+                <button className="btn btn-primary btn-lg" type="button">
+                  了解劇本殺
+                </button>
+              </div>
+            </div>
+            <div
+              class="carousel-item rounded-3 mb-4 p-5"
+              style={{
+                backgroundImage: `url(${event2})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div
+                className="container-fluid py-5"
+                style={{ paddingLeft: "6rem" }}
+              >
+                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
+                <p className="col-md-8 fs-2">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                </p>
+                <button className="btn btn-primary btn-lg" type="button">
+                  了解劇本殺
+                </button>
+              </div>
+            </div>
+            <div
+              class="carousel-item rounded-3 mb-4 p-5"
+              style={{
+                backgroundImage: `url(${event3})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div
+                className="container-fluid py-5"
+                style={{ paddingLeft: "6rem" }}
+              >
+                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
+                <p className="col-md-8 fs-2">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                </p>
+                <button className="btn btn-primary btn-lg" type="button">
+                  了解劇本殺
+                </button>
+              </div>
+            </div>
           </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
 
         <div className="row align-items-md-stretch">
