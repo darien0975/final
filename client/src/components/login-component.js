@@ -30,7 +30,7 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   return (
-    <div style={{ padding: "3rem" }} className="col-md-12">
+    <div style={{ padding: "3rem" }} className="col-md-12 login-container">
       <div>
         {message && <div className="alert alert-danger">{message}</div>}
         <div className="form-group">

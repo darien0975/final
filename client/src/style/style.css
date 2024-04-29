@@ -11,5 +11,61 @@ body {
 }
 
 nav {
-  background-color: orange;
+  background-color: rgb(102, 0, 255);
+}
+
+.join-container {
+  padding: 3rem;
+}
+.join-container #full {
+  color: red;
+}
+.join-container span {
+  margin: 0.5rem 0rem;
+}
+.join-container .join-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.join-container .join-box .join-card {
+  width: 21rem;
+  margin: 1rem;
+}
+
+.larpevent-container {
+  padding: 3rem;
+}
+.larpevent-container #full {
+  color: red;
+}
+.larpevent-container p,
+.larpevent-container span {
+  margin: 0.5rem 0rem;
+}
+.larpevent-container .larpevent-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.larpevent-container .larpevent-box .larpevent-card {
+  width: 21rem;
+  margin: 1rem;
+}
+
+.login-container {
+  padding: 3rem;
+}
+
+.postlarpevent-container {
+  padding: 3rem;
+}
+.postlarpevent-container textarea {
+  height: 200px;
+}
+
+.profile-container {
+  padding: 3rem;
+}
+
+.register-container {
+  padding: 3rem;
 }/*# sourceMappingURL=style.css.map */

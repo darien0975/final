@@ -9,11 +9,11 @@ body {
   background-color: blanchedalmond;
 }
 
+@import "./nav";
 @import "./home";
 @import "./join";
 @import "./larpevent";
 @import "./login";
-@import "./nav";
 @import "./postlarpevent";
 @import "./profile";
 @import "./register";

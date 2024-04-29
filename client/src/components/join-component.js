@@ -54,7 +54,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   return (
-    <div style={{ padding: "3rem" }}>
+    <div className="join-container">
       {message && <div className="alert alert-danger">{message}</div>}
       {!currentUser && (
         <div>
@@ -86,14 +86,10 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
       )}
 
       {currentUser && (searchResult || allLarps) && (
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="join-box">
           {(searchResult || allLarps).map((larp) => {
             return (
-              <div
-                key={larp._id}
-                className="card"
-                style={{ width: "21rem", margin: "1rem" }}
-              >
+              <div key={larp._id} className="card join-card">
                 <div className="card-body">
                   <h5 className="card-title">劇本名稱:{larp.name}</h5>
                   <p>類型:{larp.type}</p>
@@ -105,24 +101,18 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
                   </p>
                   {(larp.male - larp.maleplayer.length !== 0 ||
                     larp.female - larp.femaleplayer.length !== 0) && (
-                    <span style={{ margin: "0.5rem 0rem" }}>缺</span>
+                    <span>缺</span>
                   )}
 
                   {larp.male - larp.maleplayer.length === 0 &&
                     larp.female - larp.femaleplayer.length === 0 && (
-                      <span style={{ margin: "0.5rem 0rem", color: "red" }}>
-                        滿團
-                      </span>
+                      <span id="full">滿團</span>
                     )}
                   {larp.male - larp.maleplayer.length !== 0 && (
-                    <span style={{ margin: "0.5rem 0rem" }}>
-                      {larp.male - larp.maleplayer.length}男
-                    </span>
+                    <span>{larp.male - larp.maleplayer.length}男</span>
                   )}
                   {larp.female - larp.femaleplayer.length !== 0 && (
-                    <span style={{ margin: "0.5rem 0rem" }}>
-                      {larp.female - larp.femaleplayer.length}女
-                    </span>
+                    <span>{larp.female - larp.femaleplayer.length}女</span>
                   )}
                   <p>聯絡方式(line或電話):{larp.contact}</p>
                   {larp.note && <p>備註:{larp.note}</p>}

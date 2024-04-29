@@ -67,7 +67,7 @@ const PostLarpeventComponent = (props) => {
   };
 
   return (
-    <div style={{ padding: "3rem" }}>
+    <div className="postlarpevent-container">
       {!currentUser && (
         <div>
           <p>在發布新劇本團之前，您必須先登錄。</p>
@@ -161,7 +161,6 @@ const PostLarpeventComponent = (props) => {
           <br />
           <label for="exampleforNote">備註：</label>
           <textarea
-            style={{ height: "200px" }}
             name="note"
             type="text"
             className="form-control"

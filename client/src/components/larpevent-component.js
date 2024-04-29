@@ -58,7 +58,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
   };
 
   return (
-    <div style={{ padding: "3rem" }}>
+    <div className="larpevent-container" style={{ padding: "3rem" }}>
       {!currentUser && (
         <div>
           <p>您必須先登入才能看到劇本資訊</p>
@@ -81,61 +81,47 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
         </div>
       )}
       {currentUser && larpData && larpData.length !== 0 && (
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="larpevent-box">
           {larpData.map((larp) => {
             return (
-              <div className="card" style={{ width: "21rem", margin: "1rem" }}>
+              <div className="card larpevent-card">
                 <div className="card-body">
                   <h5 className="card-title">劇本名稱:{larp.name}</h5>
-                  {larp.type && (
-                    <p style={{ margin: "0.5rem 0rem" }}>類型:{larp.type}</p>
-                  )}
-                  <p style={{ margin: "0.5rem 0rem" }}>時間:{larp.time}</p>
-                  <p style={{ margin: "0.5rem 0rem" }}>地點:{larp.place}</p>
-                  {larp.price !== 0 && (
-                    <p style={{ margin: "0.5rem 0rem" }}>費用:{larp.price}元</p>
-                  )}
+                  {larp.type && <p>類型:{larp.type}</p>}
+                  <p>時間:{larp.time}</p>
+                  <p>地點:{larp.place}</p>
+                  {larp.price !== 0 && <p>費用:{larp.price}元</p>}
                   <p>
                     主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
                   </p>
                   {(larp.male - larp.maleplayer.length !== 0 ||
                     larp.female - larp.femaleplayer.length !== 0) && (
-                    <span style={{ margin: "0.5rem 0rem" }}>缺</span>
+                    <span>缺</span>
                   )}
 
                   {larp.male - larp.maleplayer.length === 0 &&
                     larp.female - larp.femaleplayer.length === 0 && (
-                      <span style={{ margin: "0.5rem 0rem", color: "red" }}>
-                        滿團
-                      </span>
+                      <span id="full">滿團</span>
                     )}
 
                   {larp.male - larp.maleplayer.length !== 0 && (
-                    <span style={{ margin: "0.5rem 0rem" }}>
-                      {larp.male - larp.maleplayer.length}男
-                    </span>
+                    <span>{larp.male - larp.maleplayer.length}男</span>
                   )}
                   {larp.female - larp.femaleplayer.length !== 0 && (
-                    <span style={{ margin: "0.5rem 0rem" }}>
-                      {larp.female - larp.femaleplayer.length}女
-                    </span>
+                    <span>{larp.female - larp.femaleplayer.length}女</span>
                   )}
                   {currentUser.user.role === "玩家" && (
-                    <p style={{ margin: "0.5rem 0rem" }}>
-                      主持人聯絡方式(line或電話):{larp.contact}
-                    </p>
+                    <p>主持人聯絡方式(line或電話):{larp.contact}</p>
                   )}
                   {currentUser.user.role === "主持人" && (
-                    <p style={{ margin: "0.5rem 0rem" }}>
+                    <p>
                       玩家們聯絡方式(line或電話):
                       {larp.playercontact.map((data) => {
                         return <span>{data + ","}</span>;
                       })}
                     </p>
                   )}
-                  {larp.note && (
-                    <p style={{ margin: "0.5rem 0rem" }}>備註:{larp.note}</p>
-                  )}
+                  {larp.note && <p>備註:{larp.note}</p>}
                   {currentUser.user.role === "主持人" && (
                     <a
                       href="#"

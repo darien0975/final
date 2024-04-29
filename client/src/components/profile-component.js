@@ -1,11 +1,9 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import AuthService from "../services/auth.service";
 
-
-const ProfileComponent = ({currentUser , setCurrentUser}) => {
-
+const ProfileComponent = ({ currentUser, setCurrentUser }) => {
   return (
-    <div style={{ padding: "3rem" }}>
+    <div className="profile-container">
       {!currentUser && <div>在獲取您的個人資料之前，您必須先登錄。</div>}
       {currentUser && (
         <div>
@@ -25,7 +23,9 @@ const ProfileComponent = ({currentUser , setCurrentUser}) => {
               </tr>
               <tr>
                 <td>
-                  <strong>您的聯絡方式(line或電話): {currentUser.user.contact}</strong>
+                  <strong>
+                    您的聯絡方式(line或電話): {currentUser.user.contact}
+                  </strong>
                 </td>
               </tr>
               <tr>

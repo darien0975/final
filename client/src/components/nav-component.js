@@ -12,7 +12,7 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
   return (
     <div>
       <nav>
-        <nav className="navbar navbar-expand-lg navbar-light bg-warning">
+        <nav className="navbar navbar-expand-lg navbar-light  bg-danger">
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
