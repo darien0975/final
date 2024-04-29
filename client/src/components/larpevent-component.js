@@ -95,11 +95,9 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                   {larp.price !== 0 && (
                     <p style={{ margin: "0.5rem 0rem" }}>費用:{larp.price}元</p>
                   )}
-                  {larp.gamemaster.name && (
-                    <p style={{ margin: "0.5rem 0rem" }}>
-                      主持人:{larp.gamemaster.name}
-                    </p>
-                  )}
+                  <p>
+                    主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
+                  </p>
                   {(larp.male - larp.maleplayer.length !== 0 ||
                     larp.female - larp.femaleplayer.length !== 0) && (
                     <span style={{ margin: "0.5rem 0rem" }}>缺</span>
