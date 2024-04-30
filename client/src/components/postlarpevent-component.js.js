@@ -29,18 +29,15 @@ const PostLarpeventComponent = (props) => {
   };
   const handleChangePrice = (e) => {
     setPrice(e.target.value);
-    console.log(typeof e.target.value);
   };
   const handleChangePlace = (e) => {
     setPlace(e.target.value);
   };
   const handleChangeMale = (e) => {
     setMale(e.target.value);
-    console.log("Male Value:", e.target.value);
   };
   const handleChangeFemale = (e) => {
     setFemale(e.target.value);
-    console.log("Female Value:", e.target.value);
   };
 
   const handleChangeContact = (e) => {
@@ -49,11 +46,38 @@ const PostLarpeventComponent = (props) => {
 
   const handleChangeNote = (e) => {
     setNote(e.target.value);
-    console.log("Note value:", e.target.value);
   };
 
   const postLarp = () => {
-    console.log("Male Value:", male, " Female Value:", female);
+    console.log(price);
+    if (name === "") {
+      setMessage("劇本名稱不能為空,請重新輸入");
+      return;
+    }
+
+    if (time === "") {
+      setMessage("時間不能為空,請重新輸入");
+      return;
+    }
+
+    if (place === "") {
+      setMessage("地點不能為空,請重新輸入");
+      return;
+    }
+
+    if (price === "" || price === null || isNaN(price)) {
+      setMessage("價格請填入一個數字");
+      return;
+    } else if (price < 0) {
+      setMessage("價格不能為負數");
+      return;
+    }
+
+    if (contact === "") {
+      setMessage("聯絡方式不能為空,請重新輸入");
+      return;
+    }
+
     larpEventService
       .post(name, type, time, place, price, male, female, contact, note)
       .then(() => {
@@ -61,7 +85,6 @@ const PostLarpeventComponent = (props) => {
         navigate("/larpevent");
       })
       .catch((error) => {
-        console.log(error.response);
         setMessage(error.response.data);
       });
   };
@@ -84,9 +107,14 @@ const PostLarpeventComponent = (props) => {
           <p>只有主持人可以發布新劇本團。</p>
         </div>
       )}
+      {message && (
+        <div className="alert alert-danger" role="alert">
+          {message}
+        </div>
+      )}
       {currentUser && currentUser.user.role === "主持人" && (
         <div className="form-group">
-          <label for="exampleforName">劇本名稱：</label>
+          <label for="exampleforName">劇本名稱(必填)：</label>
           <input
             name="name"
             type="text"
@@ -104,7 +132,7 @@ const PostLarpeventComponent = (props) => {
             onChange={handleChangeType}
           />
           <br />
-          <label for="exampleforTime">時間：</label>
+          <label for="exampleforTime">時間(必填)：</label>
           <input
             name="time"
             type="text"
@@ -113,7 +141,7 @@ const PostLarpeventComponent = (props) => {
             onChange={handleChangeTime}
           />
           <br />
-          <label for="exampleforPlace">地點：</label>
+          <label for="exampleforPlace">地點(必填)：</label>
           <input
             name="place"
             type="text"
@@ -122,7 +150,7 @@ const PostLarpeventComponent = (props) => {
             onChange={handleChangePlace}
           />
           <br />
-          <label for="exampleforPrice">價格：</label>
+          <label for="exampleforPrice">價格(必填)：</label>
           <input
             name="price"
             type="number"
@@ -149,7 +177,7 @@ const PostLarpeventComponent = (props) => {
             onChange={handleChangeFemale}
           />
           <br />
-          <label for="exampleforContact">聯絡方式：</label>
+          <label for="exampleforContact">聯絡方式(必填)：</label>
           <input
             name="contact"
             type="text"
@@ -173,11 +201,6 @@ const PostLarpeventComponent = (props) => {
           </button>
           <br />
           <br />
-          {message && (
-            <div className="alert alert-warning" role="alert">
-              {message}
-            </div>
-          )}
         </div>
       )}
     </div>

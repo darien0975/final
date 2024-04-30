@@ -6,7 +6,13 @@
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: rgb(237, 121, 255);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @import "./nav";

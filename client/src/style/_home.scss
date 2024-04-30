@@ -1,0 +1,16 @@
+main {
+  .home-container {
+    .two-box {
+      .player {
+        background: url(../pictures/table3.png);
+        background-size: cover;
+        background-position: center;
+      }
+      .gamemaster {
+        background: url(../pictures/book.png);
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}

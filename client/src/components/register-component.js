@@ -42,8 +42,38 @@ const RegisterComponent = () => {
   };
 
   const handleRegister = (e) => {
+    if (username === "" || username.length < 3) {
+      setMessage("帳號至少要有3個英文或數字,請重新輸入");
+      return;
+    }
+
+    if (name === "") {
+      setMessage("暱稱不能為空,請重新輸入");
+      return;
+    }
+
+    if (password === "" || password.length < 6) {
+      setMessage("密碼至少要有6個英文或數字,請重新輸入");
+      return;
+    }
+
     if (password !== confirmPassword) {
-      setMessage("密碼不匹配");
+      setMessage("密碼不匹配,請重新輸入");
+      return;
+    }
+
+    if (contact === "") {
+      setMessage("聯絡方式不能為空,請重新輸入");
+      return;
+    }
+
+    if (sex === "") {
+      setMessage("請選擇您的性別");
+      return;
+    }
+
+    if (role === "") {
+      setMessage("請選擇您的身分");
       return;
     }
 
@@ -53,6 +83,7 @@ const RegisterComponent = () => {
         navigate("/login");
       })
       .catch((e) => {
+        console.log(e);
         setMessage(e.response.data);
       });
   };
@@ -68,6 +99,7 @@ const RegisterComponent = () => {
             type="text"
             className="form-control"
             name="username"
+            placeholder="長度至少3個英文或數字"
           />
         </div>
         <br />
@@ -89,7 +121,7 @@ const RegisterComponent = () => {
             type="password"
             className="form-control"
             name="password"
-            placeholder="長度至少超過6個英文或數字"
+            placeholder="長度至少6個英文或數字"
           />
         </div>
         <br />

@@ -117,7 +117,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                     <p>
                       玩家們聯絡方式(line或電話):
                       {larp.playercontact.map((data) => {
-                        return <span>{data + ","}</span>;
+                        return <span>{data + "、"}</span>;
                       })}
                     </p>
                   )}

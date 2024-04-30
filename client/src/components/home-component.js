@@ -7,7 +7,7 @@ import event3 from "../pictures/event3.png";
 const HomeComponent = () => {
   return (
     <main>
-      <div className="container py-4">
+      <div className="container py-4 home-container">
         <div
           className=" carousel slide"
           id="carouselExampleControls"
@@ -26,11 +26,13 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
-                <p className="col-md-8 fs-2">
+                <h1 className="display-4 fw-bold text-white">
+                  劇本殺預約排程系統
+                </h1>
+                <p className="col-md-8 fs-2 text-white">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
                 </p>
-                <button className="btn btn-primary btn-lg" type="button">
+                <button className="btn btn-primary btn-lg " type="button">
                   了解劇本殺
                 </button>
               </div>
@@ -47,8 +49,10 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
-                <p className="col-md-8 fs-2">
+                <h1 className="display-4 fw-bold text-white">
+                  劇本殺預約排程系統
+                </h1>
+                <p className="col-md-8 fs-2 text-white">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
                 </p>
                 <button className="btn btn-primary btn-lg" type="button">
@@ -68,8 +72,10 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-2 fw-bold">劇本殺預約排程系統</h1>
-                <p className="col-md-8 fs-2">
+                <h1 className="display-4 fw-bold text-white">
+                  劇本殺預約排程系統
+                </h1>
+                <p className="col-md-8 fs-2 text-white">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
                 </p>
                 <button className="btn btn-primary btn-lg" type="button">
@@ -79,28 +85,34 @@ const HomeComponent = () => {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            class="carousel-control-prev "
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span
+              class="carousel-control-prev-icon bg-dark rounded-3"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden ">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            class="carousel-control-next "
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              class="carousel-control-next-icon bg-dark rounded-3"
+              aria-hidden="true"
+            ></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
 
-        <div className="row align-items-md-stretch">
-          <div className="col-md-6 mb-2">
-            <div className="h-100 p-5 text-white bg-dark rounded-3">
+        <div className="row align-items-md-stretch two-box">
+          <div className="col-md-6 mb-2 ">
+            <div className="h-100 p-5 text-white  player rounded-3">
               <h2>作為一個玩家</h2>
               <p>玩家可以參加他們喜歡的劇本殺團。</p>
               <Link
@@ -121,8 +133,8 @@ const HomeComponent = () => {
               </Link>
             </div>
           </div>
-          <div className="col-md-6 mb-2">
-            <div className="h-100 p-5 bg-light border rounded-3">
+          <div className="col-md-6 mb-2 ">
+            <div className="h-100 p-5 gamemaster text-white rounded-3">
               <h2>作為一個主持人</h2>
               <p>您可以通過註冊成為一名主持人，並開始發布您的開團資訊。</p>
               <Link
