@@ -67,7 +67,7 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
           </button>
         </div>
       )}
-      {currentUser && currentUser.user.role === "主持人" && (
+      {currentUser && currentUser.user.role === "主揪" && (
         <div>
           <h1>只有玩家才能參加劇本團</h1>
         </div>
@@ -87,18 +87,16 @@ const JoinComponent = ({ currentUser, setCurrentUser }) => {
 
       {currentUser && (searchResult || allLarps) && (
         <div className="join-box">
-          {(searchResult || allLarps).map((larp) => {
+          {[...(searchResult || allLarps)].reverse().map((larp) => {
             return (
               <div key={larp._id} className="card join-card">
                 <div className="card-body">
-                  <h5 className="card-title">劇本名稱:{larp.name}</h5>
+                  <h3 className="card-title">劇本名稱:{larp.name}</h3>
                   <p>類型:{larp.type}</p>
                   <p>時間:{larp.time}</p>
                   <p>地點:{larp.place}</p>
                   {larp.price !== 0 && <p>費用:{larp.price}元</p>}
-                  <p>
-                    主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
-                  </p>
+                  <p>主揪:{larp.gamemaster ? larp.gamemaster.name : "不明"}</p>
                   {(larp.male - larp.maleplayer.length !== 0 ||
                     larp.female - larp.femaleplayer.length !== 0) && (
                     <span>缺</span>

@@ -30,7 +30,7 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["玩家", "主持人"],
+    enum: ["玩家", "主揪"],
   },
   date: {
     type: Date,
@@ -43,7 +43,7 @@ userSchema.methods.isPlayer = function () {
 };
 
 userSchema.methods.isGamemaster = function () {
-  return this.role == "主持人";
+  return this.role == "主揪";
 };
 
 userSchema.methods.isMale = function () {

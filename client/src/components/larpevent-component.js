@@ -18,7 +18,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
     if (currentUser && currentUser.user) {
       _id = currentUser.user._id;
 
-      if (currentUser.user.role === "主持人") {
+      if (currentUser.user.role === "主揪") {
         larpEventService
           .get(_id)
           .then((data) => {
@@ -49,6 +49,9 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
       .then(() => {
         window.alert("刪除成功");
         setDeleted(true);
+        setLarpData((prevData) =>
+          prevData.filter((larp) => larp._id !== larpId)
+        );
         navigate("/larpevent");
       })
       .catch((e) => {
@@ -70,7 +73,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
           </button>
         </div>
       )}
-      {currentUser && currentUser.user.role === "主持人" && (
+      {currentUser && currentUser.user.role === "主揪" && (
         <div>
           <h1>歡迎來到{currentUser.user.name}的頁面</h1>
         </div>
@@ -82,18 +85,16 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
       )}
       {currentUser && larpData && larpData.length !== 0 && (
         <div className="larpevent-box">
-          {larpData.map((larp) => {
+          {[...larpData].reverse().map((larp) => {
             return (
               <div className="card larpevent-card">
                 <div className="card-body">
-                  <h5 className="card-title">劇本名稱:{larp.name}</h5>
+                  <h3 className="card-title">劇本名稱:{larp.name}</h3>
                   {larp.type && <p>類型:{larp.type}</p>}
                   <p>時間:{larp.time}</p>
                   <p>地點:{larp.place}</p>
                   {larp.price !== 0 && <p>費用:{larp.price}元</p>}
-                  <p>
-                    主持人:{larp.gamemaster ? larp.gamemaster.name : "不明"}
-                  </p>
+                  <p>主揪:{larp.gamemaster ? larp.gamemaster.name : "不明"}</p>
                   {(larp.male - larp.maleplayer.length !== 0 ||
                     larp.female - larp.femaleplayer.length !== 0) && (
                     <span>缺</span>
@@ -111,9 +112,9 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                     <span>{larp.female - larp.femaleplayer.length}女</span>
                   )}
                   {currentUser.user.role === "玩家" && (
-                    <p>主持人聯絡方式(line或電話):{larp.contact}</p>
+                    <p>主揪聯絡方式(line或電話):{larp.contact}</p>
                   )}
-                  {currentUser.user.role === "主持人" && (
+                  {currentUser.user.role === "主揪" && (
                     <p>
                       玩家們聯絡方式(line或電話):
                       {larp.playercontact.map((data) => {
@@ -122,7 +123,7 @@ const LarpEventcomponent = ({ currentUser, setCurrentUser }) => {
                     </p>
                   )}
                   {larp.note && <p>備註:{larp.note}</p>}
-                  {currentUser.user.role === "主持人" && (
+                  {currentUser.user.role === "主揪" && (
                     <a
                       href="#"
                       id={larp._id}

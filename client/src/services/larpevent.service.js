@@ -41,7 +41,7 @@ class LarpEventService {
     });
   }
 
-  //使用主持人id找到開團資訊
+  //使用主揪id找到開團資訊
   get(_id) {
     let token;
     if (localStorage.getItem("user")) {

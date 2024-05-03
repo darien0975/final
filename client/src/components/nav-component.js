@@ -12,7 +12,7 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
   return (
     <div>
       <nav>
-        <nav className="navbar navbar-expand-lg navbar-light  bg-danger">
+        <nav className="navbar navbar-expand-lg navbar-light  bg-warning">
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
@@ -62,7 +62,7 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                   </li>
                 )}
 
-                {currentUser && currentUser.user.role === "主持人" && (
+                {currentUser && currentUser.user.role === "主揪" && (
                   <li className="nav-item">
                     <Link className="nav-link" to="/postlarpevent">
                       新增劇本

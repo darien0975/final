@@ -152,7 +152,7 @@ const RegisterComponent = () => {
           <select onChange={handleRole} className="form-control" name="role">
             <option value="">請選擇身份</option>
             <option value="玩家">玩家</option>
-            <option value="主持人">主持人</option>
+            <option value="主揪">主揪</option>
           </select>
         </div>
         <br />

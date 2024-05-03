@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import event from "../pictures/event.png";
-import event2 from "../pictures/event2.png";
-import event3 from "../pictures/event3.png";
+import event from "../pictures/eventnew.png";
+import event2 from "../pictures/eventnew2.png";
+import event3 from "../pictures/eventnew3.png";
 
 const HomeComponent = () => {
   return (
@@ -26,11 +26,11 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-4 fw-bold text-white">
+                <h1 className="display-4 fw-bold text-black">
                   劇本殺預約排程系統
                 </h1>
-                <p className="col-md-8 fs-2 text-white">
-                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                <p className="col-md-8 fs-2 text-black">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
                 <button className="btn btn-primary btn-lg " type="button">
                   了解劇本殺
@@ -49,11 +49,11 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-4 fw-bold text-white">
+                <h1 className="display-4 fw-bold text-black">
                   劇本殺預約排程系統
                 </h1>
-                <p className="col-md-8 fs-2 text-white">
-                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                <p className="col-md-8 fs-2 text-black">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
                 <button className="btn btn-primary btn-lg" type="button">
                   了解劇本殺
@@ -72,11 +72,11 @@ const HomeComponent = () => {
                 className="container-fluid py-5"
                 style={{ paddingLeft: "6rem" }}
               >
-                <h1 className="display-4 fw-bold text-white">
+                <h1 className="display-4 fw-bold text-black">
                   劇本殺預約排程系統
                 </h1>
-                <p className="col-md-8 fs-2 text-white">
-                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主持人們可透過此平台進行交流、互動.
+                <p className="col-md-8 fs-2 text-black">
+                  本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
                 <button className="btn btn-primary btn-lg" type="button">
                   了解劇本殺
@@ -135,8 +135,8 @@ const HomeComponent = () => {
           </div>
           <div className="col-md-6 mb-2 ">
             <div className="h-100 p-5 gamemaster text-white rounded-3">
-              <h2>作為一個主持人</h2>
-              <p>您可以通過註冊成為一名主持人，並開始發布您的開團資訊。</p>
+              <h2>作為一個主揪</h2>
+              <p>您可以通過註冊成為一名主揪，並開始發布您的開團資訊。</p>
               <Link
                 className="btn btn-primary"
                 type="button"

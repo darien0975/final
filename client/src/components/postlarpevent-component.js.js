@@ -8,7 +8,7 @@ const PostLarpeventComponent = (props) => {
   let [type, setType] = useState("");
   let [time, setTime] = useState("");
   let [place, setPlace] = useState("");
-  let [price, setPrice] = useState(0);
+  let [price, setPrice] = useState(null);
   let [male, setMale] = useState(0);
   let [female, setFemale] = useState(0);
   let [contact, setContact] = useState("");
@@ -102,9 +102,9 @@ const PostLarpeventComponent = (props) => {
           </button>
         </div>
       )}
-      {currentUser && currentUser.user.role !== "主持人" && (
+      {currentUser && currentUser.user.role !== "主揪" && (
         <div>
-          <p>只有主持人可以發布新劇本團。</p>
+          <p>只有主揪可以發布新劇本團。</p>
         </div>
       )}
       {message && (
@@ -112,7 +112,7 @@ const PostLarpeventComponent = (props) => {
           {message}
         </div>
       )}
-      {currentUser && currentUser.user.role === "主持人" && (
+      {currentUser && currentUser.user.role === "主揪" && (
         <div className="form-group">
           <label for="exampleforName">劇本名稱(必填)：</label>
           <input

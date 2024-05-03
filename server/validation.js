@@ -8,7 +8,7 @@ const registerValidation = (data) => {
     name: Joi.string().min(1).max(50).required(),
     contact: Joi.string().min(1).max(50).required(),
     sex: Joi.string().required().valid("男性", "女性"),
-    role: Joi.string().required().valid("玩家", "主持人"),
+    role: Joi.string().required().valid("玩家", "主揪"),
   });
 
   return schema.validate(data);

@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//用主持人ID查詢開團
+//用主揪ID查詢開團
 router.get("/gamemaster/:_gamemaster_id", async (req, res) => {
   let { _gamemaster_id } = req.params;
   let larpFound = await LarpEvent.find({ gamemaster: _gamemaster_id })
@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   if (req.user.isPlayer()) {
-    return res.status(400).send("只有主持人才能發布開團資訊");
+    return res.status(400).send("只有主揪才能發布開團資訊");
   }
 
   let { name, type, time, place, price, male, female, contact, note } =
