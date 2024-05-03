@@ -32,9 +32,13 @@ const HomeComponent = () => {
                 <p className="col-md-8 fs-2 text-black">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
-                <button className="btn btn-primary btn-lg " type="button">
+                <Link
+                  className="btn btn-primary btn-lg"
+                  type="button"
+                  to="/about"
+                >
                   了解劇本殺
-                </button>
+                </Link>
               </div>
             </div>
             <div
@@ -55,9 +59,13 @@ const HomeComponent = () => {
                 <p className="col-md-8 fs-2 text-black">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
-                <button className="btn btn-primary btn-lg" type="button">
+                <Link
+                  className="btn btn-primary btn-lg"
+                  type="button"
+                  to="/about"
+                >
                   了解劇本殺
-                </button>
+                </Link>
               </div>
             </div>
             <div
@@ -78,9 +86,13 @@ const HomeComponent = () => {
                 <p className="col-md-8 fs-2 text-black">
                   本系統是一個提供全台劇本殺活動之揪團、參團、預約等交流平台.玩家及主揪們可透過此平台進行交流、互動.
                 </p>
-                <button className="btn btn-primary btn-lg" type="button">
+                <Link
+                  className="btn btn-primary btn-lg"
+                  type="button"
+                  to="/about"
+                >
                   了解劇本殺
-                </button>
+                </Link>
               </div>
             </div>
           </div>

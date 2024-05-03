@@ -32,6 +32,13 @@ main .home-container .two-box .gamemaster {
   background-position: center;
 }
 
+main {
+  padding: 3rem;
+}
+main .about-container {
+  background-color: aqua;
+}
+
 .join-container {
   padding: 3rem;
 }

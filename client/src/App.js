@@ -10,6 +10,7 @@ import PostLarpEventComponent from "./components/postlarpevent-component.js";
 import JoinComponent from "./components/join-component.js";
 import AuthService from "./services/auth.service";
 import "./style/style.css";
+import AboutComponent from "./components/about-component.js";
 
 function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
@@ -24,6 +25,7 @@ function App() {
           }
         >
           <Route index element={<HomeComponent />} />
+          <Route path="about" element={<AboutComponent />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route
             path="login"
