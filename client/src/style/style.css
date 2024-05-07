@@ -35,6 +35,20 @@ main .home-container .two-box .gamemaster {
 main {
   padding: 3rem;
 }
+main .about-container .video .video-box iframe {
+  width: 100%;
+  height: 40vw;
+}
+main .about-container .feature img {
+  width: 100%;
+}
+main .about-container .feature .feature-box {
+  align-items: center;
+  border-bottom: 2px dotted rgb(210, 180, 140);
+}
+main .about-container .feature .feature-box .feature-box-text h2 {
+  text-align: center;
+}
 
 .join-container {
   padding: 3rem;
