@@ -7,7 +7,7 @@ import event3 from "../pictures/eventnew3.png";
 const HomeComponent = () => {
   return (
     <main>
-      <div className="container py-4 home-container">
+      <div className="container py-1 home-container">
         <div
           className=" carousel slide"
           id="carouselExampleControls"
