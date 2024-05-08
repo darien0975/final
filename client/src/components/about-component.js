@@ -1,21 +1,28 @@
 import React from "react";
 import friends from "../pictures/friends.png";
 import london from "../pictures/london.png";
+import room from "../pictures/table1.png";
+import book from "../pictures/book2.png";
+import clothing from "../pictures/clothing2.png";
+import larp from "../pictures/larps1.png";
 
 const AboutComponent = () => {
   return (
     <main>
       <div className="container py-4 about-container">
         <div className="container-fluid bg-warning rounded-3 introduce">
-          <div className="row align-items-md-stretch ">
-            <div className="col-md-12 fs-5">
+          <div className="row align-items-md-stretch introduce-box">
+            <div className="col-md-7 fs-3">
               <div className="h-100 p-4">
-                <h2>什麼是劇本殺?</h2>
+                <h1>什麼是劇本殺?</h1>
                 <p>
                   “劇本殺”，一詞起源於西方宴會實況角色扮演“謀殺之謎”，是玩家到實景場館，體驗推理性質的項目。劇本殺的規則是，玩家先選擇人物，閱讀人物對應劇本，蒐集線索後找出活動裏隱藏的真兇。
                   劇本殺不僅僅是一個遊戲，更是一個集知識屬性、心理博弈屬性、強社交屬性於一體的娛樂項目。
                 </p>
               </div>
+            </div>
+            <div className="col-md-5 p-4 introduce-box-img">
+              <img src={larp} alt="" />
             </div>
           </div>
         </div>
@@ -31,8 +38,8 @@ const AboutComponent = () => {
             ></iframe>
           </div>
         </div>
-        <div className="row align-items-md-stretch mt-5 sop">
-          <div className="col-md-12 mb-2 fs-5 text-left">
+        <div className="row align-items-md-stretch mt-1 sop  rounded-3">
+          <div className="col-md-12 mb-2 fs-5 text-left text-white">
             <h1 className="text-center">劇本殺遊戲流程</h1>
             <div>
               <p>
@@ -52,18 +59,18 @@ const AboutComponent = () => {
         </div>
         <div className="row align-items-md-stretch feature">
           <h1 className="text-center">劇本殺特色</h1>
-          <div className="row mb-2 p-3 fs-5 feature-box">
-            <div className="col-md-7 feature-box-img">
+          <div className="row mb-2 p-3 fs-5 feature-box align-items-md-stretch">
+            <div className="col-md-7  feature-box-img">
               <img src={friends} alt="" />
             </div>
-            <div className="col-md-5 feature-box-text">
+            <div className="col-md-5 feature-box-text ">
               <h2>增進社交</h2>
               <p>
                 劇本殺是一個極佳的社交活動，讓人們在互動中建立更深層次的人際關係。透過討論和合作，參與者們可以共同解決謎團，培養團隊精神，並建立持久的友誼。
               </p>
             </div>
           </div>
-          <div className="row mb-2 p-3 fs-5 feature-box">
+          <div className="row mb-2 p-3 fs-5 feature-box align-items-md-stretch">
             <div className="col-md-5 feature-box-text">
               <h2>身歷其境</h2>
               <p>
@@ -72,6 +79,39 @@ const AboutComponent = () => {
             </div>
             <div className="col-md-7 feature-box-img">
               <img src={london} alt="" />
+            </div>
+          </div>
+          <div className="row mb-2 p-3 fs-5 feature-box align-items-md-stretch">
+            <div className="col-md-7 feature-box-img">
+              <img src={room} alt="" />
+            </div>
+            <div className="col-md-5 feature-box-text">
+              <h2>沉浸式包廂</h2>
+              <p>
+                劇本殺提供沉浸式的場景設計和道具，讓參與者們仿佛置身於一部真實的影視劇中。這種環境可以增強參與者的參與感，讓他們更深度地融入遊戲中。
+              </p>
+            </div>
+          </div>
+          <div className="row mb-2 p-3 fs-5 feature-box align-items-md-stretch">
+            <div className="col-md-5 feature-box-text">
+              <h2>推理環節</h2>
+              <p>
+                劇本殺的遊戲充滿了謎團和懸疑情節，需要參與者們通過推理和分析來解開。這種推理過程不僅激發思維，提高邏輯能力，還增加了遊戲的挑戰性和趣味性。
+              </p>
+            </div>
+            <div className="col-md-7 feature-box-img">
+              <img src={book} alt="" />
+            </div>
+          </div>
+          <div className="row mb-2 p-3 fs-5 feature-box align-items-md-stretch">
+            <div className="col-md-7 feature-box-img">
+              <img src={clothing} alt="" />
+            </div>
+            <div className="col-md-5 feature-box-text">
+              <h2>換裝體驗</h2>
+              <p>
+                參與者們可以根據劇情要求穿著不同的服裝，完全融入自己所扮演的角色。這種換裝體驗不僅增添了遊戲的趣味性，還讓參與者們享受到角色扮演的樂趣。
+              </p>
             </div>
           </div>
         </div>
