@@ -53,10 +53,10 @@ const AboutComponent = () => {
         <div className="row align-items-md-stretch feature">
           <h1 className="text-center">劇本殺特色</h1>
           <div className="row mb-2 p-3 fs-5 feature-box">
-            <div className="col-md-8 feature-box-img">
+            <div className="col-md-7 feature-box-img">
               <img src={friends} alt="" />
             </div>
-            <div className="col-md-4 feature-box-text">
+            <div className="col-md-5 feature-box-text">
               <h2>增進社交</h2>
               <p>
                 劇本殺是一個極佳的社交活動，讓人們在互動中建立更深層次的人際關係。透過討論和合作，參與者們可以共同解決謎團，培養團隊精神，並建立持久的友誼。
@@ -64,13 +64,13 @@ const AboutComponent = () => {
             </div>
           </div>
           <div className="row mb-2 p-3 fs-5 feature-box">
-            <div className="col-md-4 feature-box-text">
+            <div className="col-md-5 feature-box-text">
               <h2>身歷其境</h2>
               <p>
                 透過劇本殺，參與者們可以扮演各種不同的角色，從而深入體驗不同的生活和情境。這種身份轉換讓人們能夠更好地理解他人，拓展視野，並增進同理心。
               </p>
             </div>
-            <div className="col-md-8 feature-box-img">
+            <div className="col-md-7 feature-box-img">
               <img src={london} alt="" />
             </div>
           </div>
